@@ -74,7 +74,7 @@ public class XUiFromXmlPatch
             case "scrollbar":
                 view = new XUiV_ScrollBar(id);
                 view.xui = _windowGroup.xui;
-                XUiFromXmlReversePatch.parseController(_node, view, _parent);
+                XUiFromXmlReversePatch.setController(_node, view, _parent);
                 XUiFromXmlReversePatch.parseAttributes(_node, view, _parent, _controlParams);
 
                 view.Controller.WindowGroup = _windowGroup;
@@ -86,7 +86,7 @@ public class XUiFromXmlPatch
         if(view != null)
         {
             view.xui = _windowGroup.xui;
-            XUiFromXmlReversePatch.parseController(_node, view, _parent);
+            XUiFromXmlReversePatch.setController(_node, view, _parent);
             XUiFromXmlReversePatch.parseAttributes(_node, view, _parent, _controlParams);
 
             view.Controller.WindowGroup = _windowGroup;
@@ -166,7 +166,7 @@ public class XUiFromXmlPatch
         if (view != null)
         {
             view.xui = windowGroup.xui;
-            XUiFromXmlReversePatch.parseController(node, view, parent);
+            XUiFromXmlReversePatch.setController(node, view, parent);
             XUiFromXmlReversePatch.parseAttributes(node, view, parent, _controlParams);
 
             view.Controller.WindowGroup = windowGroup;
@@ -188,11 +188,11 @@ public class XUiFromXmlReversePatch
     }
 
     [HarmonyReversePatch]
-    [HarmonyPatch("parseController")]
-    public static void parseController(XElement _node, XUiView _viewComponent, XUiController _parent)
+    [HarmonyPatch("setController")]
+    public static void setController(XElement _node, XUiView _viewComponent, XUiController _parent)
     {
         // its a stub so it has no initial content
-        throw new NotImplementedException(TAG + "parseController");
+        throw new NotImplementedException(TAG + "setController");
     }
 
     [HarmonyReversePatch]

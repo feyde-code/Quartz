@@ -16,16 +16,16 @@ using HarmonyLib;
 
 namespace Quartz.Map
 {
-    [HarmonyPatch(typeof(NavObjectClass))]
-    public class NavObjectClass_Harmony
-    {
-        [HarmonyPrefix]
-        [HarmonyPatch("IsOnMap")]
-        private static bool IsOnMap(NavObjectClass __instance, bool isActive, ref bool __result)
-        {
-            NavObjectMapSettings mapSettings = __instance.GetMapSettings(isActive);
-            __result = mapSettings != null && !(mapSettings.Properties.Contains("minimap_only") && mapSettings.Properties.GetBool("minimap_only"));
-            return false;
-        }
-    }
+    //[HarmonyPatch(typeof(NavObjectClass))]
+    //public class NavObjectClass_Harmony
+    //{
+    //    [HarmonyPrefix]
+    //    [HarmonyPatch("IsOnMap")]
+    //    private static bool IsOnMap(NavObjectClass __instance, bool isActive, ref bool __result)
+    //    {
+    //        NavObjectMapSettings mapSettings = __instance.GetMapSettings(isActive);
+    //        __result = mapSettings != null && !(mapSettings.Properties.Contains("minimap_only") && mapSettings.Properties.GetBool("minimap_only"));
+    //        return false;
+    //    }
+    //}
 }

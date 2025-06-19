@@ -572,7 +572,7 @@ namespace Quartz
             {
                 NavObject navObject = navObjectList[i];
                 int key = navObject.Key;
-                if (navObject.HasRequirements && navObject.NavObjectClass.IsOnMiniMap(navObject.IsActive))
+                if (navObject.NavObjectClass.RequirementType != NavObjectClass.RequirementTypes.None && navObject.NavObjectClass.IsOnMiniMap(navObject.IsActive))
                 {
                     NavObjectMapSettings currentMapSettings = navObject.CurrentMapSettings;
                     MinimapMarker mapObject;
